@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Recommend;
+use App\Model\Goods;
 use App\Model\Cate;
 use DB;
 class AdvertController extends Controller
@@ -38,7 +39,6 @@ class AdvertController extends Controller
      */
     public function getIndex(Request $request)
     {
-//        return 1;
         //接收数据
         $search = $request->input('search','');
         //判断数据
@@ -63,8 +63,8 @@ class AdvertController extends Controller
     {
         //获取分类表中的数据 加载到添加页面中
         $cates = $this->pubCates();
-
         $count = Recommend::count();
+        //分配数据
         return view('Admin.recommend.recomAdd',['cates'=>$cates,'count'=>$count]);
     }
 
@@ -242,7 +242,6 @@ class AdvertController extends Controller
     {
         //接收参数
         $input = $request->all();
-        // return $input;
         //根据id获取要修改状态的用户
         $recom = Recommend::find($input['id']);
         //对状态进行取反操作
@@ -265,13 +264,18 @@ class AdvertController extends Controller
     }
 
     /**
-     * 选中分类后显示商品
-     * @param int $tid
-     * @return object 商品
+     * 当选择分类后显示
+     * 显示该分类下的商品列表
+     * @param int cid
+     * @return json
      * 
      */
-    public function goods()
+    public function goods(Request $request)
     {
-      echo 123;
+        //接收参数
+        $cid = $request->input('cid');
+        //查询数据库
+        $result = Goods::where('cid',$cid)->get();
+        return $result;
     }
 }

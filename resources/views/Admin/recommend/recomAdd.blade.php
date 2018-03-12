@@ -12,28 +12,47 @@
                   <span class="x-red">*</span>商品分类
               </label>
               <div class="layui-inline">
-                  <select name="tid" id="cate">
+                  <select name="tid" lay-filter="cate">
                       <option value="0">-- 请选择分类 --</option>
                       @foreach($cates as $key=>$value)
                       <option value="{{$value['id']}}">{{$value['type_name']}}</option>
                       @endforeach
                   </select>
               </div>
-              <script type="text/javascript">
-               /*选择分类后显示商品*/
-               $('#cate').change(function() {
-                  console.log(132);
-               });
-              </script>
+              
           </div>
+           
           <div class="layui-form-item">
-              <label for="phone" class="layui-form-label">
+              <label for="L_email" class="layui-form-label">
                   <span class="x-red">*</span>商品名称
               </label>
-              <div class="layui-input-inline">
-                  <input type="text" name="name" class="layui-input">
+              <div class="layui-inline">
+                  <select name="tid" lay-filter="goods" id="goods">
+                      <option value="0">-- 请选择商品 --</option>
+                  </select>
               </div>
           </div>
+          <script>
+           /*选择分类后显示商品*/
+           layui.use(['form','layer','element'], function(){
+              $ = layui.jquery;
+              var form = layui.form
+              ,layer = layui.layer;
+                  form.on('select(cate)', function(data){
+                    var cid = data.value;
+                    //使用Ajax发送数据
+                    $.get('/advert/goods',{"cid":cid},function(result){
+                        var option = '<option value="0">-- 请选择商品 --</option>';
+                        layui.each(result, function(key,good){
+                            option += '<option value="'+good.id+'">'+good.goods_title+'</option>';
+                        });
+                        $('#goods').html(option);
+                        form.render('select');
+                    });
+                  });
+            });
+          </script>
+
          <input type="hidden" name="sort" value="{{$count+1}}">
           <div class="layui-form-item">
                 <label for="L_art_editor" class="layui-form-label">

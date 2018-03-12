@@ -155,7 +155,6 @@
                data : data.field,//数据，这里使用的是Json格式进行传输
                dataType : "Json",
                success : function(result) {//返回数据根据结果进行相应的处理
-                  console.log(result);
                   // 如果ajax的返回数据对象的status属性值是0，表示用户添加成功；弹添加成功的提示信息
                   if(result.status == 0){
                       layer.alert(result.msg, {icon: 6},function () {
@@ -170,7 +169,6 @@
                }
             });
 
-            console.log(data);
             return false;
          });
       });

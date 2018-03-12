@@ -39,7 +39,7 @@ Route::resource('admin/goods','Admin\GoodsController');
 Route::controller('/admin/advert','Admin\AdvertController');
 Route::post('/advert/upload','Admin\AdvertController@upload');
 Route::post('/advert/sort','Admin\AdvertController@sort');
-Route::post('/advert/sortt','Admin\AdvertController@sortt');
+Route::get('/advert/goods','Admin\AdvertController@goods');
 
 //轮播图管理
 Route::resource('/admin/carousel','Admin\CarouselController');
