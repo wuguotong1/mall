@@ -92,14 +92,7 @@ class LoginController extends Controller
 	 * @return
 	 *
 	 */
-	public function getIndex()
-	{
-		return view('admin/index');
-	}
-
-	 * @param 
-	 * @return 
-	 */
+	
 	public function code()
 	{
 		$code = new Code;

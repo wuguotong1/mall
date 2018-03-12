@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('Admin.Layout.index')
 
 @section('content')
     <div class="x-nav">
