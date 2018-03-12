@@ -21,7 +21,8 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'admin_user';
+
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,13 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public $timestamps = true;
+
+    //一对一
+    public function userinfo()
+    {
+        return $this->hasOne('App\Model\Userinfo','uid');
+    }
+    // public $guarded = [];
 }

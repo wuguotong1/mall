@@ -18,6 +18,7 @@ class Code{
 	private $codeStr='23456789abcdefghijklmnpqrstuvwxyz';
 	//验证码长度
 	private $codeLen=4;
+
 	//验证码字体
 	private $font;
 	//验证码字体大小
@@ -39,7 +40,6 @@ class Code{
 		header("Content-type:image/png");
 		imagepng($this->img);
 		imagedestroy($this->img);
-
 		//exit;
 	}
 
