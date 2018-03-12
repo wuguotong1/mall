@@ -25,7 +25,7 @@
                 //获取当前元素
                 var goods = $('#cate').attr('tid');
                 console.log(goods);
-        }
+             }
               </script>
           </div>
           <div class="layui-form-item">

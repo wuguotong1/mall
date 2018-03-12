@@ -7,19 +7,27 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Code\Code;
-use Illuminate\Validation\Validator;
-
+use \DB;
 require_once app_path().'\Code\Code.class.php';
 class LoginController extends Controller
 {
 	/**
 	 * 显示登录页
+<<<<<<< HEAD
 	 * @param
 	 * @return
 	 */
     public function login()
     {
     	return view('admin\login')->with('title','—淘特惠—后台系统');
+=======
+	 * @param 
+	 * @return 
+	 */
+    public function getLogin()
+    {
+    	return view('admin\user\login');
+>>>>>>> ccd12bbe8a7198026541953c308745138ff1f691
     }
 
     /**
@@ -97,4 +105,12 @@ class LoginController extends Controller
 		return view('admin/index');
 	}
 
+	 * @param 
+	 * @return 
+	 */
+	public function code()
+	{
+		$code = new Code;
+		return $code->make();
+	}
 }
