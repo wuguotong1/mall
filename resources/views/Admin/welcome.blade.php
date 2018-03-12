@@ -13,6 +13,7 @@
     <body>
         <div class="x-body">
             <blockquote class="layui-elem-quote">欢迎使用x-admin 后台模版！v2.0官方交流群： 519492808</blockquote>
+
             <fieldset class="layui-elem-field">
               <legend>信息统计</legend>
               <div class="layui-field-box">
@@ -87,11 +88,19 @@
                     </tr>
                     <tr>
                         <td>服务器域名</td>
+<<<<<<< HEAD
                         <td>x.xuebingsi.com</td>
                     </tr>
                     <tr>
                         <td>服务器端口 </td>
                         <td>80</td>
+=======
+                        <td>{{ $_SERVER['HTTP_HOST']  }}</td>
+                    </tr>
+                    <tr>
+                        <td>服务器端口 </td>
+                        <td>{{ $_SERVER['SERVER_PORT']  }}</td>
+>>>>>>> 8492db054f3f00b06c58ef141e5feff8c9a16249
                     </tr>
                     <tr>
                         <td>允许文件上传的最大值 </td>
@@ -173,15 +182,24 @@
             </table>
               </div>
             </fieldset>
+<<<<<<< HEAD
             <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本后台系统由X前端框架提供前端技术支持。</blockquote>
 
+=======
+            <blockquote class="layui-elem-quote layui-quote-nm">www.tth.com</blockquote>
+            
+>>>>>>> 8492db054f3f00b06c58ef141e5feff8c9a16249
         </div>
         <script>
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
           hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+<<<<<<< HEAD
           var s = document.getElementsByTagName("script")[0];
+=======
+          var s = document.getElementsByTagName("script")[0]; 
+>>>>>>> 8492db054f3f00b06c58ef141e5feff8c9a16249
           s.parentNode.insertBefore(hm, s);
         })();
         </script>

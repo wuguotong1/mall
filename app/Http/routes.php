@@ -80,3 +80,26 @@ Route::controller('/admin/login','Admin\LoginController');
 
 //后台首页显示
 Route::resource('/admin/index','Admin\UserController');
+
+
+
+//conflict
+//后台登录页面的显示
+Route::get('/admin','Admin\LoginController@login');
+//后台验证码的生成
+Route::get('/admin/code','Admin\LoginController@code');
+//后台详情页
+Route::get('/admin/welcome','Admin\LoginController@welcome');
+
+
+//后台首页显示
+Route::controller('/admin/index','Admin\LoginController');
+//网站配置模块
+Route::post('/admin/config/changecontent','Admin\ConfigController@changeContent');
+Route::get('/admin/config/putcontent','Admin\ConfigController@putContent');
+Route::resource('/admin/config','Admin\ConfigController');
+//文件上传
+Route::post('/admin/config/upload','Admin\ConfigController@upload');
+
+//前台路由
+Route::get('/index','Home\IndexController@index');

@@ -20,6 +20,14 @@ class LoginController extends Controller
     public function getLogin()
     {
     	return view('admin\user\login');
+    {
+    /*
+	 * @param 
+	 * @return 
+	 */
+    public function login()
+    {
+    	return view('Admin/index');
     }
 
     /**
@@ -86,6 +94,7 @@ class LoginController extends Controller
         return redirect('admin/index');
 
 	}
+	
 	/**
 	 * 后台首页显示
 	 * @param
@@ -97,5 +106,5 @@ class LoginController extends Controller
 	{
 		$code = new Code;
 		return $code->make();
-	}
+	{
 }

@@ -22,5 +22,4 @@ class IndexController extends Controller
         //轮播图
         $carousel = Carousel::where('status','1')->get();
         return view('Home.index',['carousel'=>$carousel,'recom'=>$recom]);
-    }
 }

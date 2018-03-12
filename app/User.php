@@ -46,4 +46,5 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasOne('App\Model\Userinfo','uid');
     }
     // public $guarded = [];
+
 }
