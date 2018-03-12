@@ -10,7 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-<<<<<<< HEAD
 //Route::get('/',function(){
 //    return view('welcome');
 //});
@@ -51,11 +50,7 @@ Route::get('/carousel/dellall','Admin\CarouselController@delAll');
 //前台相关路由
 Route::get('/','Home\IndexController@index');
 Route::get('/home','Home\IndexController@indexx');
-=======
 
-Route::get('/', function () {
-    return view('welcome');
-});
 //后台 前台用户状态
 Route::get('/admin/list/changestate','Admin\UsersController@changeState');
 
@@ -85,5 +80,3 @@ Route::controller('/admin/login','Admin\LoginController');
 
 //后台首页显示
 Route::resource('/admin/index','Admin\UserController');
-
->>>>>>> ccd12bbe8a7198026541953c308745138ff1f691
