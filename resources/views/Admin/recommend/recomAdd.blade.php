@@ -12,20 +12,18 @@
                   <span class="x-red">*</span>商品分类
               </label>
               <div class="layui-inline">
-                  <select name="tid" id="cate" onchange="show_goods(obj)">
+                  <select name="tid" id="cate">
                       <option value="0">-- 请选择分类 --</option>
                       @foreach($cates as $key=>$value)
                       <option value="{{$value['id']}}">{{$value['type_name']}}</option>
                       @endforeach
                   </select>
               </div>
-              <script>
+              <script type="text/javascript">
                /*选择分类后显示商品*/
-              function show_goods(obj,tid){
-                //获取当前元素
-                var goods = $('#cate').attr('tid');
-                console.log(goods);
-        }
+               $('#cate').change(function() {
+                  console.log(132);
+               });
               </script>
           </div>
           <div class="layui-form-item">
