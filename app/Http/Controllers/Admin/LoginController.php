@@ -13,21 +13,13 @@ class LoginController extends Controller
 {
 	/**
 	 * 显示登录页
-<<<<<<< HEAD
 	 * @param
 	 * @return
 	 */
-    public function login()
-    {
-    	return view('admin\login')->with('title','—淘特惠—后台系统');
-=======
-	 * @param 
-	 * @return 
-	 */
+  
     public function getLogin()
     {
     	return view('admin\user\login');
->>>>>>> ccd12bbe8a7198026541953c308745138ff1f691
     }
 
     /**
