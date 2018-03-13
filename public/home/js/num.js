@@ -20,7 +20,7 @@ function jianUpdate(jian){
 
 
 
-function addUpdate1(jia){
+function addUpdate1(jia){		
 	var c = jia.parent().find(".car_ipt").val();
 	c=parseInt(c)+1;	
 	jia.parent().find(".car_ipt").val(c);

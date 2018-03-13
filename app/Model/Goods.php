@@ -11,5 +11,4 @@ class Goods extends Model
     public $guarded = [];
     public $timestamps = false;
 
-
 }

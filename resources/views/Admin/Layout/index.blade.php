@@ -13,7 +13,6 @@
     <script type="text/javascript" src="/admin/js/jquery-3.2.1.min.js"></script>
     <script src="/admin/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/admin/js/xadmin.js"></script>
-
 </head>
 <body>
     <!-- 顶部开始 -->
@@ -104,6 +103,14 @@
                     </li >
                 </ul>
             </li>
+             <li>
+                <a href="{{ url('admin/index') }}">
+                    <i class="iconfont">&#xe726;</i>
+                    <cite>评论管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+            </li>
+
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
@@ -135,6 +142,7 @@
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
                     <cite>网站配置管理</cite>
+
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
@@ -158,7 +166,8 @@
     <!-- <div class="x-slide_left"></div> -->
     <!-- 左侧菜单结束 -->
     <!-- 右侧主体开始 -->
-    <div class="page-content">
+ <div class="page-content">
+
         @section('content')
 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bd58fd976f1ee3e9611bc37c006ec46",
+    "content-hash": "1a5a617cba19039fa299bdf2a0f0fa06",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -698,6 +698,7 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
             "version": "1.22.1",
             "source": {
                 "type": "git",
@@ -717,6 +718,27 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "~2",
                 "phpunit/phpunit": "~4.0 || ~5.0"
+=======
+            "version": "1.24.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/bba6c6e410c6b4317e37a9474aeaa753808c3875.zip",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/translation": "~2.6 || ~3.0 || ~4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2",
+                "phpunit/phpunit": "^4.8.35 || ^5.7"
+>>>>>>> 1ed457b73b5b6074410e8785e05b2f7243908361
             },
             "type": "library",
             "extra": {
@@ -747,7 +769,11 @@
                 "datetime",
                 "time"
             ],
+<<<<<<< HEAD
             "time": "2017-01-16T07:55:07+00:00"
+=======
+            "time": "2018-03-10T10:10:14+00:00"
+>>>>>>> 1ed457b73b5b6074410e8785e05b2f7243908361
         },
         {
             "name": "nikic/php-parser",
