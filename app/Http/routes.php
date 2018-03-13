@@ -22,7 +22,6 @@ Route::get('vcode','LoginController@vcode');
 Route::post('dologin','LoginController@doLogin');
 
 });
-// Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'login'],function(){
 //用户模块
 Route::get('admin/user/changestate','Admin\UserController@changeState');
 //批量删除用户路由
@@ -47,9 +46,10 @@ Route::get('/change','Admin\CarouselController@change');
 Route::any('/carousel/uploads','Admin\CarouselController@uploads');
 Route::get('/carousel/dellall','Admin\CarouselController@delAll');
 
-//前台相关路由
-Route::get('/','Home\IndexController@index');
-Route::get('/home','Home\IndexController@indexx');
+//友情链接表
+Route::resource('/admin/link','Admin\LinkController');
+Route::get('/link/change','Admin\LinkController@change');
+Route::post('/link/sort','Admin\LinkController@sort');
 
 //后台 前台用户状态
 Route::get('/admin/list/changestate','Admin\UsersController@changeState');
@@ -82,7 +82,6 @@ Route::controller('/admin/login','Admin\LoginController');
 Route::resource('/admin/index','Admin\UserController');
 
 
-
 //conflict
 //后台登录页面的显示
 Route::get('/admin','Admin\LoginController@login');
@@ -91,9 +90,9 @@ Route::get('/admin/code','Admin\LoginController@code');
 //后台详情页
 Route::get('/admin/welcome','Admin\LoginController@welcome');
 
-
 //后台首页显示
 Route::controller('/admin/index','Admin\LoginController');
+
 //网站配置模块
 Route::post('/admin/config/changecontent','Admin\ConfigController@changeContent');
 Route::get('/admin/config/putcontent','Admin\ConfigController@putContent');
@@ -102,4 +101,7 @@ Route::resource('/admin/config','Admin\ConfigController');
 Route::post('/admin/config/upload','Admin\ConfigController@upload');
 
 //前台路由
-Route::get('/index','Home\IndexController@index');
+Route::get('/','Home\IndexController@index');
+
+//购物车路由
+Route::resource('/home/buycar','Home\BuycarController');

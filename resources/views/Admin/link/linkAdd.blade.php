@@ -2,61 +2,23 @@
 
 @section('content')
 
-<a href="/admin/advert" class="layui-btn layui-btn-normal" style="margin-left:20px; margin-top:20px;">返回列表页</a>
+<a href="/admin/link" class="layui-btn layui-btn-normal" style="margin-left:20px; margin-top:20px;">返回列表页</a>
     <div class="x-body">
-      <form id="adv_form" class="layui-form" action="/admin/advert/insert" method="post" enctype="multipart/form-data">
+      <form id="adv_form" class="layui-form" action="/admin/link" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
 
           <div class="layui-form-item">
-              <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>商品分类
+              <label for="title" class="layui-form-label">
+                  <span class="x-red">*</span>标题
               </label>
-              <div class="layui-inline">
-                  <select name="tid" lay-filter="cate">
-                      <option value="0">-- 请选择分类 --</option>
-                      @foreach($cates as $key=>$value)
-                      <option value="{{$value['id']}}">{{$value['type_name']}}</option>
-                      @endforeach
-                  </select>
-              </div>
-              
-          </div>
-           
-          <div class="layui-form-item">
-              <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>商品名称
-              </label>
-              <div class="layui-inline">
-                  <select name="gid" lay-filter="goods" id="goods">
-                      <option value="0">-- 请选择商品 --</option>
-                  </select>
+              <div class="layui-input-inline">
+                  <input type="text" name="link_name" class="layui-input">
               </div>
           </div>
-          <script>
-           /*选择分类后显示商品*/
-           layui.use(['form','layer','element'], function(){
-              $ = layui.jquery;
-              var form = layui.form
-              ,layer = layui.layer;
-                  form.on('select(cate)', function(data){
-                    var cid = data.value;
-                    //使用Ajax发送数据
-                    $.get('/advert/goods',{"cid":cid},function(result){
-                        var option = '<option value="0">-- 请选择商品 --</option>';
-                        layui.each(result, function(key,good){
-                            option += '<option value="'+good.id+'">'+good.goods_title+'</option>';
-                        });
-                        $('#goods').html(option);
-                        form.render('select');
-                    });
-                  });
-            });
-          </script>
-
          <input type="hidden" name="sort" value="{{$count+1}}">
           <div class="layui-form-item">
                 <label for="L_art_editor" class="layui-form-label">
-                    <span class="x-red">*</span>缩略图
+                    <span class="x-red">*</span>Logo
                 </label>
                 <div class="layui-input-inline">
                     <input type="file" id="file_upload" name="file_upload">
@@ -106,35 +68,26 @@
                     }
                 </script>
             </div>
-
             <div class="layui-form-item">
                 <label for="L_art_tag" class="layui-form-label">
                     <span class="x-red">*</span>预览
                 </label>
                 <div class="layui-input-block">
-                    <input type="hidden" name="recom_thumb" id="recom_thumb" value="">
+                    <input type="hidden" name="logo" id="recom_thumb" value="">
                     {{--上传成功后显示上传图片--}}
                     <img src="" id="thumb" alt="" style="width:100px;">
                 </div>
             </div>
 
           <div class="layui-form-item">
-              <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>商品描述
+              <label for="title" class="layui-form-label">
+                  <span class="x-red">*</span>Link URL
               </label>
               <div class="layui-input-inline">
-                  <textarea name="desc" class="layui-input" style="height:100px;"></textarea>
+                  <input type="text" name="link_url" class="layui-input">
               </div>
           </div>
 
-          <div class="layui-form-item">
-              <label class="layui-form-label"><span class="x-red">*</span>状态</label>
-              <div class="layui-input-block">
-                <input type="radio" name="status" lay-skin="primary" value="0" title="隐藏" checked>
-                <input type="radio" name="status" lay-skin="primary" value="1" title="显示">
-              </div>
-          </div>
-          
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label"></label>
               <button  class="layui-btn" lay-filter="add">确定</button>
@@ -162,5 +115,4 @@
           });
         });
     </script>
-    
 @endsection

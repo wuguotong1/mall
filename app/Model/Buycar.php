@@ -4,23 +4,22 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Recommend extends Model
+class Buycar extends Model
 {
     //关联的表名
-    public $table = 'goods_recommend';
+    public $table = 'buycar';
     //是否自动维护created_at和updated_at字段
     public $timestamps = true;
     public $guarded = [];
 
-    //定义推荐表和分类表的属于关系
-    public function cate()
+    //定义购物车表和用户表的属于关系
+    public function userCar()
     {
-    	return $this->belongsTo('App\Model\Cate','tid');
+    	return $this->belongsTo('App\Model\Userf','uid');
     }
-    //定义推荐表和商品表的属于关系
-    public function goods()
+    //定义购物车表和商品表的属于关系
+    public function goodsCar()
     {
         return $this->belongsTo('App\Model\Goods','gid');
     }
-    
 }

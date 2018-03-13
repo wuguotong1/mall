@@ -11,41 +11,33 @@ use \DB;
 require_once app_path().'\Code\Code.class.php';
 class LoginController extends Controller
 {
-	/**
-	 * 显示登录页
-	 * @param
-	 * @return
-	 */
+    /**
+     * 显示登录页
+     * @param
+     * @return
+     */
   
     public function getLogin()
     {
-    	return view('admin\user\login');
-    {
-    /*
-	 * @param 
-	 * @return 
-	 */
-    public function login()
-    {
-    	return view('Admin/index');
+        return view('admin\user\login');
     }
 
     /**
-	 * 生成验证码
-	 * @param
-	 * @return
-	 */
+     * 生成验证码
+     * @param
+     * @return
+     */
 
-	public function vcode()
-	{
-		$code = new Code;
+    public function vcode()
+    {
+        $code = new Code;
 
         return $code->make();
-	}
+    }
 
-	public function doLogin(Request $request)
-	{
- 		$input = $request->except('_token');
+    public function doLogin(Request $request)
+    {
+        $input = $request->except('_token');
 
 //          2. 验证数据有效性
 //        $validator = Validator::make(需要验证的数据，验证规则，错误提示信息);
@@ -68,7 +60,6 @@ class LoginController extends Controller
         if($validator->fails()){
             return redirect('admin/login')->withErrors($validator)->withInput();
         }
-
 
 //        3. 验证用户是否存在
 
@@ -93,18 +84,27 @@ class LoginController extends Controller
 
         return redirect('admin/index');
 
-	}
-	
-	/**
-	 * 后台首页显示
-	 * @param
-	 * @return
-	 *
-	 */
-	
-	public function code()
-	{
-		$code = new Code;
-		return $code->make();
-	{
+    }
+    /**
+     * 后台首页显示
+     * @param
+     * @return
+     *
+     */
+    public function code()
+    {
+        $code = new Code;
+        return $code->make();
+    }
+
+    /**
+     * 后台详情页
+     * @param 
+     * @return 
+     * 
+     */
+    public function welcome()
+    {
+        return view('Admin/welcome');
+    }
 }

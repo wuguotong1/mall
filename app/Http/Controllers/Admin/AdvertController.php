@@ -78,6 +78,7 @@ class AdvertController extends Controller
         //接收数据
         $data = $request->except('_token','file_upload');
         // dump($data);
+        // die;
         $res = Recommend::insert($data);
         if($res) {
             return redirect('/admin/advert')->with('success','添加成功');

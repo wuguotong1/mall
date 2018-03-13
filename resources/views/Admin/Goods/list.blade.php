@@ -3,10 +3,8 @@
 @section('content')
     <div class="x-body">
         <div class="layui-row">
-
         </div>
         <xblock>
-
             <button class="layui-btn" onclick="x_admin_show('添加用户','{{ url('admin/goods/create') }}',600,800)"><i class="layui-icon"></i>添加</button>
             {{--<span class="x-right" style="line-height:40px">共有数据：88 条</span>--}}
         </xblock>
@@ -51,7 +49,6 @@
             </tbody>
         </table>
 
-
     </div>
     <script>
         layui.use(['form','laydate','layer'], function(){
@@ -75,8 +72,6 @@
                 // return false;layui-layer2
                 $('layui').remove();
             });
-
-
         });
 
         /*商品-删除*/
@@ -127,5 +122,4 @@
             // });
         }
     </script>
-
 @endsection

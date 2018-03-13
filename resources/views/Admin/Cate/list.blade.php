@@ -3,10 +3,8 @@
 @section('content')
     <div class="x-body">
         <div class="layui-row">
-
         </div>
         <xblock>
-
             <button class="layui-btn" onclick="x_admin_show('添加用户','{{ url('admin/cate/create') }}',600,400)"><i class="layui-icon"></i>添加</button>
             {{--<span class="x-right" style="line-height:40px">共有数据：88 条</span>--}}
         </xblock>
@@ -67,8 +65,6 @@
                 // console.log(11111);
                 // return false;
             });
-
-
         });
 
         //修改排序
@@ -155,9 +151,7 @@
 
             });
         }
-
-
-
+        
         function delAll (argument) {
 
             //var data = tableCheck.getData();
@@ -180,16 +174,6 @@
                 }
             })
 
-            // layer.confirm('确认要删除吗？'+data,function(index){
-            //     //捉到所有被选中的，发异步进行删除
-
-            // });
         }
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();</script>
 @endsection

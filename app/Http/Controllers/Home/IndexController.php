@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Carousel;
 use App\Model\Recommend;
+use App\Model\Link;
 class IndexController extends Controller
 {
     /**
@@ -21,5 +22,9 @@ class IndexController extends Controller
         $recom = Recommend::where('status','1')->orderBy('sort','asc')->get();
         //轮播图
         $carousel = Carousel::where('status','1')->get();
-        return view('Home.index',['carousel'=>$carousel,'recom'=>$recom]);
+        //友情链接
+        $link = Link::where('status','1')->orderBy('sort','asc')->get();
+        //加载模板
+        return view('Home.index',['carousel'=>$carousel,'recom'=>$recom,'link'=>$link]);
+    }
 }

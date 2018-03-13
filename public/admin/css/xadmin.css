@@ -273,7 +273,7 @@ xblock{
 	width: 220px;
     max-width: 220px;
     overflow: auto;
-    overflow-x:hidden;
+    overflow-x:scroll;
     border-right: 1px solid #e5e5e5;
 
     /*width: 0px;*/
@@ -351,7 +351,7 @@ xblock{
     right: 0;
     bottom: 42px;
     left: 221px;
-    overflow: hidden;
+    overflow: scroll;
     z-index: 1;
 }
 .page-content-bg{
@@ -361,7 +361,7 @@ xblock{
     bottom: 42px;
     left: 221px;
     background: rgba(0,0,0,0.5); url() 0 0 no-repeat;
-    overflow: hidden;
+    overflow: scroll;
     z-index: 100;
     display: none;
 }
@@ -402,7 +402,7 @@ xblock{
 	width: 100%;
 	background: #fff url() 0 0 no-repeat;
 	padding: 0px;
-	overflow: hidden;
+	overflow: scroll;
 }
 .page-content .layui-tab-content .layui-tab-item{
 	width: 100%;

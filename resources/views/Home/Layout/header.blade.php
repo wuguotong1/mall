@@ -7,9 +7,15 @@
 	<script type="text/javascript" src="{{asset('home/js/jquery.bxslider_e88acd1b.js')}}"></script>
     
     <script type="text/javascript" src="{{asset('home/js/jquery-1.8.2.min.js')}}"></script>
+    
+                
     <script type="text/javascript" src="{{asset('home/js/menu.js')}}"></script>    
-        
-	<script type="text/javascript" src="{{asset('home/js/select.js')}}"></script>
+    <script type="text/javascript" src="{{asset('home/js/n_nav.js')}}"></script> 
+    <script type="text/javascript" src="{{asset('home/js/shade.js')}}"></script> 
+
+
+    <script type="text/javascript" src="{{asset('home/js/select.js')}}"></script>
+	<script type="text/javascript" src="{{asset('home/js/num.js')}}"></script>
     
 	<script type="text/javascript" src="{{asset('home/js/lrscroll.js')}}"></script>
     
@@ -181,4 +187,25 @@
         </div>
     </div>
 </div>
-<!--End Header End--> 
+<!--End Header End-->
+<!--start 导航栏菜单 start-->
+<div class="menu_bg">
+    <div class="menu">
+        <!--Begin 商品分类详情 Begin-->
+        <div class="nav">
+            <div class="nav_t">全部商品分类</div>
+        </div>
+        <ul class="menu_r">
+            <li><a href="Index.html">首页</a></li>
+            <li><a href="Food.html">美食</a></li>
+            <li><a href="Fresh.html">生鲜</a></li>
+            <li><a href="HomeDecoration.html">家居</a></li>
+            <li><a href="SuitDress.html">女装</a></li>
+            <li><a href="MakeUp.html">美妆</a></li>
+            <li><a href="Digital.html">数码</a></li>
+            <li><a href="GroupBuying.html">团购</a></li>
+        </ul>
+        <div class="m_ad">中秋送好礼！</div>
+    </div>
+</div>
+<!--End 导航栏菜单 End-->

@@ -14,11 +14,6 @@
     <script type="text/javascript" src="/admin/js/jquery-3.2.1.min.js"></script>
     <script src="{{ asset('admin/lib/layui/layui.js') }}" charset="utf-8"></script>
     <script type="text/javascript" src="{{ asset('admin/js/xadmin.js') }}"></script>
-    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -104,7 +99,7 @@
                     //只将上传文件打包进formData
                     // var formData = new FormData();
                     // formData.append('fileupload',$('#file_upload')[0].files[0]);
-                    {{--formData.append('_token','{{ csrf_token() }}');--}}
+                    //{{--formData.append('_token','{{ csrf_token() }}');--}}
                     $.ajax({
                         type: "POST",
                         url: "/admin/upload",
@@ -208,19 +203,13 @@
                     }
                 }
             });
-
-
-
             console.log(data);
             //发异步，把数据提交给php
 
             return false;
         });
 
-
     });
 </script>
-
 </body>
-
 </html>

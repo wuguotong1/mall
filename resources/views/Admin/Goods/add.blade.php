@@ -91,7 +91,7 @@
                         //只将上传文件打包进formData
                         // var formData = new FormData();
                         // formData.append('fileupload',$('#file_upload')[0].files[0]);
-                        {{--formData.append('_token','{{ csrf_token() }}');--}}
+                        //{{--formData.append('_token','{{ csrf_token() }}');--}}
                         $.ajax({
                             type: "POST",
                             url: "/admin/upload",
@@ -108,7 +108,7 @@
                                 $('#thumb').attr('src',data);
                                 //显示上传到OSS上的图片
                                 // $('#thumb').attr('src','oss的域名'+data);
-                                {{--$('#thumb').attr('src','{{ env('ALIOSS_DOMAIN') }}'+data);--}}
+                                //{{--$('#thumb').attr('src','{{ env('ALIOSS_DOMAIN') }}'+data);--}}
                                 $('#art_thumb').val(data);
                             },
                             error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -176,8 +176,6 @@
             form.on('submit(add)', function(data){
 
             });
-
-
         });
     </script>
 
