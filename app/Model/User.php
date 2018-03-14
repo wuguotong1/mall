@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    public $table = 'user';
+    public $table = 'users';
 //    表的主键
     public $primaryKey = 'id';
 

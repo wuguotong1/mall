@@ -1,5 +1,8 @@
 @extends('admin.layout.index')
+@section('style')
 
+
+    @endsection
 @section('content')
     <div class="x-body">
         <form id="art_form" class="layui-form" action="{{ url('admin/goods') }}" method="post" enctype="multipart/form-data">
@@ -50,6 +53,7 @@
                            autocomplete="off" class="layui-input">
                 </div>
             </div>
+
             <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">
                     <span class="x-red">*</span>商品描述
@@ -58,6 +62,17 @@
                     <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
                 </div>
             </div>
+
+            {{--<div class="layui-form-item">--}}
+                {{--<label for="L_pass" class="layui-form-label">--}}
+                    {{--<span class="x-red">*</span>商品详情描述--}}
+                {{--</label>--}}
+                {{--<div class="layui-input-block">--}}
+                    {{--<textarea name="contents" placeholder="请输入内容" class="layui-textarea"></textarea>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+
             <div class="layui-form-item">
                 <label for="L_art_editor" class="layui-form-label">
                     <span class="x-red">*</span>缩略图
@@ -131,26 +146,7 @@
             </div>
 
 
-            <div class="layui-form-item">
 
-                <div class="layui-input-block">
-                    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
-                    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
-                    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
-                    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-                    <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
-
-                    <script name="art_content" id="editor" type="text/plain" style="width:700px;height:500px;"></script>
-
-                    <script type="text/javascript">
-
-                    //实例化编辑器
-                    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-                    var ue = UE.getEditor('editor');
-                    </script>
-                </div>
-
-            </div>
 
             <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label">

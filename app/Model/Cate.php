@@ -55,6 +55,10 @@ class Cate extends Model
     {
         return $this->hasMany('App\Model\Goods', 'cid')->get();
     }
+    public function recommend()
+    {
+        return $this->hasMany('App\Model\Recommend','tid');
+    }
 
 }
 

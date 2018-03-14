@@ -11,5 +11,13 @@ class Goods extends Model
     public $guarded = [];
     public $timestamps = false;
 
+    public function detail()
+    {
+        return $this->hasOne('App\Model\Detail','gid');
+    }
 
+    public function cate()
+    {
+        return $this->hasMany('App\Model\Cate','id','cid');
+    }
 }

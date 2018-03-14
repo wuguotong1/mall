@@ -18,7 +18,7 @@ class Login
         if(!session('user')){
             return redirect()->route('admin.login')->with('errors','这里不欢迎你，请你自觉离开，谢谢！');
         }
-//        登录放行
+//        登录后
         return $next($request);
     }
 }

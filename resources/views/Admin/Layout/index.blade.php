@@ -15,6 +15,9 @@
     {{--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
     <script src="/admin/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/admin/js/xadmin.js"></script>
+    @section('style')
+
+    @show
 
 </head>
 <body>
@@ -117,6 +120,44 @@
                         </a>
                     </li >
 
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe705;</i>
+                    <cite>订单管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ url('admin/indent') }}">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>订单列表</cite>
+                        </a>
+                    </li >
+
+
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe723;</i>
+                    <cite>广告管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/admin/advert">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>推荐位列表</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a href="/admin/carousel">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>轮播图列表</cite>
+                        </a>
+                    </li >
                 </ul>
             </li>
             <li>

@@ -34,8 +34,6 @@ class GoodsController extends Controller
 
             $newfilename = md5(date('YmdHis').rand(1000,9999).uniqid()).'.'.$ext;
 
-
-
             //1.上传到本地服务器
 //            return $newfilename;
             $res = $file->move(public_path().'/upload', $newfilename);
@@ -57,7 +55,7 @@ class GoodsController extends Controller
 
         }
     }
-    public function index()
+    public function index(Request $request)
     {
 //        return Hash::make('123123');
 //        $2y$10$R0sMXj6Tbc4UNNbVBZZkSuFTkCwK9CcrvwYCfeArwaTWRG52b/60q
@@ -73,20 +71,29 @@ class GoodsController extends Controller
 //                    $goods = $res;
 //                }
 //            }
-        //商品表信息
-        $goods = Goods::get()->toArray();
-        foreach($goods as $k=>$v){
-            $res = Cate::where('id',$v['cid'])->get();
-            //拿商品表的cid去查分类id
+        //接受搜索数据
+        $search = $request->input('search','');
+        //判断搜索，查询数据
+        if(!empty($search)) {
+            $data = Goods::where('goods_title','like','%'.$search.'%')->with('detail')->orderBy('id','asc')->paginate(1);
+        }else {
+            $data = Goods::orderBy('id','asc')->with('detail')->paginate(1);
+
+        }
+        //根据商品查询分类
+        foreach($data as $k=>$v){
+        $res = Cate::where('id',$v['cid'])->get();
+        //拿商品表的cid去查分类id
             if(!empty($res)){
                 foreach($res as $m)
                 {
-                    $goods[$k]['type_name']=$m->type_name;
+                    $data[$k]['type_name']=$m->type_name;
                 }
             }
         }
-//        dd($goods);
-        return view('admin.goods.list',compact('goods'));
+
+//        dd($data);
+        return view('admin.goods.list',compact('data','search'));
 
 
     }
@@ -98,7 +105,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        $cates = Cate::get();
+        $cates = Cate::where('pid','>','0')->get();
         return view('admin.goods.add',compact('cates'));
     }
 
@@ -195,5 +202,23 @@ class GoodsController extends Controller
             ];
         }
         return $data;
+    }
+    public function createDetail($id)
+    {
+        $id = $id;
+        return view('admin.goods.detail',compact('id'));
+    }
+
+    public function storeDetail(Request $request)
+    {
+        $input = $request->except('_token');
+
+        $res = \DB::table('goods_detail')->insert($input);
+        if($res){
+            return redirect('admin/goods');
+        }else{
+            return back();
+        }
+
     }
 }

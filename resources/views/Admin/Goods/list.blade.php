@@ -9,6 +9,12 @@
 
             <button class="layui-btn" onclick="x_admin_show('添加用户','{{ url('admin/goods/create') }}',600,800)"><i class="layui-icon"></i>添加</button>
             {{--<span class="x-right" style="line-height:40px">共有数据：88 条</span>--}}
+            <form class="layui-form layui-col-md12 x-so" style="width:300px; float:right;" method="get" action="/admin/goods">
+                {{csrf_field()}}
+                <cite>搜索：</cite>
+                <input type="text" name="search"  placeholder="请输入商品名称" autocomplete="off" class="layui-input">
+                <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+            </form>
         </xblock>
         <table class="layui-table">
             <thead>
@@ -16,29 +22,37 @@
                 <th style="width:50px;">
                     ID
                 </th>
-                <th>商品所属分类</th>
+                <th style="width:100px;">商品所属分类</th>
                 <th>商品名称</th>
+                <th>商品颜色</th>
                 <th>商品原价</th>
                 <th>商品现价</th>
+                <th>库存数</th>
+                <th>商品属性</th>
                 <th>商品描述</th>
                 <th>商品图片</th>
                 <th>操作</th></tr>
             </thead>
             <tbody>
-            @foreach($goods as $v)
+            @foreach($data as $v)
                 <tr>
                     <td>
                         {{ $v['id'] }}
                     </td>
                     <td>{{ $v['type_name'] }}</td>
                     <td>{{ $v['goods_title'] }}</td>
+                    <td>{{ $v->detail['color'] }}</td>
                     <td>{{ $v['old_price'] }}</td>
                     <td>{{ $v['new_price'] }}</td>
+                    <td>{{ $v->detail['num'] }}</td>
+                    <td>{{ $v->detail['attr'] }}</td>
                     <td>{{ $v['desc'] }}</td>
                     <td><img src="{{ $v['photo'] }}" width="50" height="50"></td>
 
                     <td class="td-manage">
-
+                        <a title="添加详情"  href="{{ url('admin/goods/createdetail/'.$v['id']) }}">
+                            <i class="layui-icon">&#xe608;</i>
+                        </a>
                         <a title="编辑"  onclick="x_admin_show('编辑','{{url('admin/goods/'.$v['id'].'/edit')}}',600,600)" href="javascript:;">
                             <i class="layui-icon">&#xe642;</i>
                         </a>
@@ -50,8 +64,14 @@
             @endforeach
             </tbody>
         </table>
-
-
+    </div>
+    <div class="page" style="float:right; display:inline; margin-top:8px;">
+        <div>
+            <div class="text-right" style="margin-top:1px;">
+                {!! $data->appends(['search'=>$search])->render() !!}
+            </div>
+        </div>
+    </div>
     </div>
     <script>
         layui.use(['form','laydate','layer'], function(){
