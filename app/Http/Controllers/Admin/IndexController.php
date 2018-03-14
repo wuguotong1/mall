@@ -10,7 +10,6 @@ use DB;
 use App\Model\Comment;
 use App\Model\Reply;
 use Input;
-use Carbon\Carbon;
 
 
 class IndexController extends Controller
@@ -37,25 +36,6 @@ class IndexController extends Controller
             ->paginate(5);
         //加载模板
         return view('/admin/index/index',['title'=>'评论列表','data'=>$data,'count'=>$count,'search'=>$search]);
-
-        // $page = $request -> input('count',20);
-        // $search = $request -> input('search','');
-        // //实例化对象
-        // $comment = DB::table('comment');
-        // // $data = $comment -> first();
-        // if(!empty($search)){
-        //     $data = $comment->where('comment','like','%'.$search.'%')
-        //     ->orWhere('uid','like','%'.$search.'%')
-        //     ->orWhere('id','like','%'.$search.'%')
-        //     ->orWhere('title','like','%'.$search.'%')
-        //     ->orWhere('item','like','%'.$search.'%')
-        //     ->orWhere('rate','like','%'.$search.'%')
-        //     ->orWhere('ctime','like','%'.$search.'%')
-        //     ->paginate($page);
-        // }
-        // $data = $comment->paginate($page);
-
-        // return view('/admin/index/index',['title'=>'评论列表','data'=>$data,'request'=>$request->all()]);
     }
 
     /**
@@ -76,19 +56,6 @@ class IndexController extends Controller
         }else{
             return back()->with('error','修改失败');
         }
-
-        // $id = $request->input('id');
-        // $reply = $request->input('reply');
-        // $rtime = date('Y-m-d H:i:s',time());
-        // $res = DB::table('reply')
-        //         ->where('comment_id',$id)
-        //         ->update(['comment_id'=>$id,'reply'=>$reply,'rtime'=>$rtime]);
-
-        //  if($res){
-        //     return redirect('/admin/index')->with('success','修改成功');
-        // }else{
-        //     return back()->with('error','修改失败');
-        // }
 
     }
 
@@ -113,15 +80,7 @@ class IndexController extends Controller
     {
         $data = Comment::where('id',$id)->first();
         
-        // $data['uname'] = $_GET['uname'];
         return view('/admin/index/show',['title'=>'用户详情','data'=>$data]);
-    
-
-        //  $data = DB::table('comment')->where('id',$id)->first();
-        
-        //     // $data['uname'] = $_GET['uname'];
-        //     return view('/admin/index/show',['title'=>'用户详情','data'=>$data]);
-        // }
     } 
     /**
      * Show the form for editing the specified resource.
@@ -136,13 +95,6 @@ class IndexController extends Controller
 
         //加载模板
         return view('/admin/index/edit',['title'=>'修改好评','data'=>$data]);
-    
-    //     //获取用户数据
-    //     $data = DB::table('comment')->where('id',$id)->first();
-
-    //     //加载模板
-    //     return view('/admin/index/edit',['title'=>'修改好评','data'=>$data]);
-    // }
     }
     /**
      * 修改用户评论
@@ -166,9 +118,7 @@ class IndexController extends Controller
         }else{
             return back()->with('error','修改失败');
         }
-        // $data = $request->all();
 
-        // dump($data);
         // $arr = ['id'=>$data['id'],'gid'=>$data['gid'],'title'=>$data['title'],'comment'=>$data['comment'],'ctime'=>$data['ctime'],'rate'=>$data['rate']];
         // // $arr = ['id'=>$data['id'],'uname'=>$data['uname']];
 
@@ -189,6 +139,7 @@ class IndexController extends Controller
     public function destroy($id)
     {
         $res = Comment::where('id',$id)->delete();
+        
         if($res){
             return redirect('/admin/index')->with('success','删除成功');
         }else{

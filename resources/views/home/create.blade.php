@@ -52,6 +52,8 @@
     <div style="width:786px; margin:auto; margin-top:5px;background-color:#f5fcff">
     <div style="margin-top:5px; margin-bottom:10px; width:780; margin:auto; font-size:13px; background-color:#f5fcff; line-height:27px;">
 
+
+
     <form action="/home/index" name="table" method="post">
     	{{csrf_field()}}
     <table border="0" cellpadding="5" cellspacing="1" style=" margin-left:30px; margin-bottom:2px; margin-top:10px; width: 629px;">
@@ -91,7 +93,7 @@
 
    <tr>
    <th width="70px" align="right" style="margin-right:5px" >商品ID</th>
-   		<td class="style1">&nbsp;<input name="gid"　value="{{old('gid')}}"  style="width:350px;">&nbsp;
+   		<td class="style1">&nbsp;<input name="gid"　value="{{ $gid }}"  style="width:350px;">&nbsp;
    			<font color="red">
    			</font>
        <font color="red"></font>

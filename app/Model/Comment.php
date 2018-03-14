@@ -23,4 +23,9 @@ class Comment extends Model
     {
     	return $this->belongsTo('App\Model\User','uid');
     }
+    public function goods()
+    {
+        return $this->belongsTo('App\Model\Goods','gid');
+    }
+
 }

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
 use App\Model\Comment;
 use App\Model\Reply;
 use App\Model\User;
 use App\Model\Carousel;
 use App\Model\Recommend;
 use App\Model\Link;
+use DB;
 class IndexController extends Controller
 {
     /**
@@ -20,16 +20,13 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $data = Comment::first();
-        // $data['uname'] = $_GET['uname'];
-        return view('/home/product',['title'=>'评论列表','data'=>$data]);
+    // public function index()
+    // {
+    //     $data = Comment::first();
+    //     // $data['uname'] = $_GET['uname'];
+    //     return view('/home/product',['title'=>'评论列表','data'=>$data]);
 
-        // $data = DB::table('comment')->first();
-        // // $data['uname'] = $_GET['uname'];
-        // return view('/home/product',['title'=>'评论列表','data'=>$data]);
-    }
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -50,21 +47,19 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->input();
         //开启事务
         DB::beginTransaction();
+        $dataa = User::where('id',4)->first();
+        $dataa['score'] += 2;
+        $ress = User::where('id',4)->update(['score'=>$dataa['score']]);
 
-        // $uid = DB::select('select uid from comment where id=14');
-        // dd($uid[0]['uid']);
-        // DB::update('update users set score=score+2 where id=?',[$uid[0]['uid']]);
-        $score = User::where('id',4)->first();
-
-        $score->update(['score'=>$score['score'] + 2]);
-        
+        //接收评论数据
         $data = $request -> except('_token');
         // 处理数据
         $res = Comment::create($data);
 
-        if($res){
+        if($res && $ress){
             DB::commit();
             return redirect('/home/index')->with('success','添加成功');
         }else{
@@ -96,25 +91,6 @@ class IndexController extends Controller
 
         return view('/home/product',['title'=>'用户详情','data'=>$data,'rate'=>$ave,'count_high'=>$count_high,'count_midium'=>$count_midium,'count_low'=>$count_low,'count'=>$count]);
 
-         // $data = DB::table('comment as c')
-         // ->join('reply as r','r.comment_id','=','c.id')
-         // ->join('users as u','u.id','=','c.uid')
-         // // ->where('gid','=','2')
-         // ->select('r.reply','c.comment','c.ctime','u.uname','u.score')
-         // ->paginate(10);
-        // dd($data);
-         
-        //  $ave = DB::table('comment')->where('gid',2)->avg('rate');
-        //  $ave = round($ave);
-        //  // dump($ave);
-
-        //  $count = DB::table('comment')->where('gid',2)->count();
-        //  $count_high = DB::table('comment')->where('gid',2)->whereBetween('rate',[81,100])->count();
-        //  $count_midium = DB::table('comment')->where('gid',2)->whereBetween('rate',[71,80])->count();
-        //  $count_low = DB::table('comment')->where('gid',2)->whereBetween('rate',[0,70])->count();
-
-        // // $data['uname'] = $_GET['uname'];
-        // return view('/home/product',['title'=>'用户详情','data'=>$data,'rate'=>$ave,'count_high'=>$count_high,'count_midium'=>$count_midium,'count_low'=>$count_low,'count'=>$count]);
     }
 
     /**
@@ -156,7 +132,7 @@ class IndexController extends Controller
      * @param
      * 
      */
-    public function index()
+    public function indexx()
     {
         //推荐位
         $recom = Recommend::where('status','1')->orderBy('sort','asc')->get();
@@ -165,6 +141,6 @@ class IndexController extends Controller
         //友情链接
         $link = Link::where('status','1')->orderBy('sort','asc')->get();
         //加载模板
-        return view('Home.index',['carousel'=>$carousel,'recom'=>$recom,'link'=>$link]);
+        return view('Home.Index',['carousel'=>$carousel,'recom'=>$recom,'link'=>$link]);
     }
 }

@@ -2,23 +2,24 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link type="text/css" rel="stylesheet" href="/home/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/home/css/ShopShow.css">
     <script type="text/javascript" src="/home/js/jquery-1.11.1.min_044d0927.js"></script>
-	<script type="text/javascript" src="{{asset('home/js/jquery.bxslider_e88acd1b.js')}}"></script>
-    
+    <script type="text/javascript" src="{{asset('home/js/jquery.bxslider_e88acd1b.js')}}"></script>
+
     <script type="text/javascript" src="{{asset('home/js/jquery-1.8.2.min.js')}}"></script>
-    
-                
-    <script type="text/javascript" src="{{asset('home/js/menu.js')}}"></script>    
-    <script type="text/javascript" src="{{asset('home/js/n_nav.js')}}"></script> 
-    <script type="text/javascript" src="{{asset('home/js/shade.js')}}"></script> 
+    <script type="text/javascript" src="{{asset('home/js/menu.js')}}"></script>
+
+
+    <script type="text/javascript" src="{{asset('home/js/menu.js')}}"></script>
+    <script type="text/javascript" src="{{asset('home/js/n_nav.js')}}"></script>
 
 
     <script type="text/javascript" src="{{asset('home/js/select.js')}}"></script>
-	<script type="text/javascript" src="{{asset('home/js/num.js')}}"></script>
-    
-	<script type="text/javascript" src="{{asset('home/js/lrscroll.js')}}"></script>
-    
+    <script type="text/javascript" src="{{asset('home/js/num.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('home/js/lrscroll.js')}}"></script>
+
     <script type="text/javascript" src="{{asset('home/js/iban.js')}}"></script>
     <script type="text/javascript" src="{{asset('home/js/fban.js')}}"></script>
     <script type="text/javascript" src="{{asset('home/js/f_ban.js')}}"></script>
@@ -26,17 +27,17 @@
     <script type="text/javascript" src="{{asset('home/js/bban.js')}}"></script>
     <script type="text/javascript" src="{{asset('home/js/hban.js')}}"></script>
     <script type="text/javascript" src="{{asset('home/js/tban.js')}}"></script>
-    
-	<script type="text/javascript" src="{{asset('home/js/lrscroll_1.js')}}"></script>
-    
-<title>特惠淘</title>
+
+    <script type="text/javascript" src="{{asset('home/js/lrscroll_1.js')}}"></script>
+
+    <title>特惠淘</title>
 </head>
-<body>  
+<body>
 <!--Begin Header Begin-->
 <div class="soubg">
-	<div class="sou">
-    	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
+    <div class="sou">
+        <!--Begin 所在收货地区 Begin-->
+        <span class="s_city_b">
         	<span class="fl">送货至：</span>
             <span class="s_city">
             	<span>四川</span>
@@ -124,7 +125,7 @@
                                 <li><a href="#">我的收藏夹</a></li>
                             </ul>
                         </div>
-                    </div>     
+                    </div>
                 </div>
                 <div class="ss_list">
                 	<a href="#">客户服务</a>
@@ -137,7 +138,7 @@
                                 <li><a href="#">客户服务</a></li>
                             </ul>
                         </div>
-                    </div>    
+                    </div>
                 </div>
                 <div class="ss_list">
                 	<a href="#">网站导航</a>
@@ -149,7 +150,7 @@
                                 <li><a href="#">网站导航</a></li>
                             </ul>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
@@ -161,22 +162,22 @@
 <div class="top">
     <div class="logo"><a href="Index.html"><img src="/home/images/logo.png" /></a></div>
     <div class="search">
-    	<form>
-        	<input type="text" value="" class="s_ipt" />
+        <form  action="{{url('/cate')}}" method="get">
+            <input type="text" name="search" value="" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
-        </form>                      
+        </form>
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
     <div class="i_car">
-    	<div class="car_t">购物车 [ <span>1</span> ]</div>
+        <div class="car_t">购物车 [ <span>1</span> ]</div>
         <div class="car_bg">
-       		<!--Begin 购物车未登录 Begin-->
-        	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <!--Begin 购物车未登录 Begin-->
+            <div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
-            	<li>
-                	<div class="img"><a href="#"><img src="/home/images/car1.jpg" width="58" height="58" /></a></div>
+                <li>
+                    <div class="img"><a href="#"><img src="/home/images/car1.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
@@ -188,24 +189,46 @@
     </div>
 </div>
 <!--End Header End-->
-<!--start 导航栏菜单 start-->
-<div class="menu_bg">
-    <div class="menu">
-        <!--Begin 商品分类详情 Begin-->
-        <div class="nav">
-            <div class="nav_t">全部商品分类</div>
+<!--Start 左侧菜单 Start-->
+<div class="i_bg bg_color">
+    <!--Begin 用户中心 Begin -->
+    <div class="m_content">
+        <div class="m_left">
+            <div class="left_n">管理中心</div>
+            <div class="left_m">
+                <div class="left_m_t t_bg1">订单中心</div>
+                <ul>
+                    <li><a href="Member_Order.html" class="now">我的订单</a></li>
+                    <li><a href="Member_Address.html">收货地址</a></li>
+                    <li><a href="#">缺货登记</a></li>
+                    <li><a href="#">跟踪订单</a></li>
+                </ul>
+            </div>
+            <div class="left_m">
+                <div class="left_m_t t_bg2">会员中心</div>
+                <ul>
+                    <li><a href="Member_User.html">用户信息</a></li>
+                    <li><a href="Member_Collect.html">我的收藏</a></li>
+                    <li><a href="Member_Msg.html">我的留言</a></li>
+                    <li><a href="Member_Links.html">推广链接</a></li>
+                    <li><a href="#">我的评论</a></li>
+                </ul>
+            </div>
+            <div class="left_m">
+                <div class="left_m_t t_bg3">账户中心</div>
+                <ul>
+                    <li><a href="Member_Safe.html">账户安全</a></li>
+                    <li><a href="Member_Packet.html">我的红包</a></li>
+                    <li><a href="Member_Money.html">资金管理</a></li>
+                </ul>
+            </div>
+            <div class="left_m">
+                <div class="left_m_t t_bg4">分销中心</div>
+                <ul>
+                    <li><a href="Member_Member.html">我的会员</a></li>
+                    <li><a href="Member_Results.html">我的业绩</a></li>
+                    <li><a href="Member_Commission.html">我的佣金</a></li>
+                    <li><a href="Member_Cash.html">申请提现</a></li>
+                </ul>
+            </div>
         </div>
-        <ul class="menu_r">
-            <li><a href="Index.html">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
-        </ul>
-        <div class="m_ad">中秋送好礼！</div>
-    </div>
-</div>
-<!--End 导航栏菜单 End-->

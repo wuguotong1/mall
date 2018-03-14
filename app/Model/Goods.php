@@ -10,5 +10,10 @@ class Goods extends Model
     public $primaryKey = 'id';
     public $guarded = [];
     public $timestamps = false;
+    
+    public function comment()
+    {
+    	return $this->hasMany('App\Model\Comment','gid');
+    }
 
 }

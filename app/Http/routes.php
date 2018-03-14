@@ -102,27 +102,29 @@ Route::resource('/admin/config','Admin\ConfigController');
 Route::post('/admin/config/upload','Admin\ConfigController@upload');
 
 //前台路由
-Route::get('/','Home\IndexController@index');
+Route::get('/index','Home\IndexController@indexx');
 
 //购物车路由
-Route::resource('/home/buycar','Home\BuycarController');
+Route::get('/home/buycar','Home\BuycarController@index');
+Route::get('/buycar/num','Home\BuycarController@num');
+Route::get('/buycar/collect','Home\BuycarController@collect');
+Route::get('/buycar/del','Home\BuycarController@del');
+Route::get('/collect/index','Home\BuycarController@showCollect');
 
 //后台首页显示 hou
 Route::resource('/admin/index','Admin\IndexController');
 
 //前台首页 hou
-Route::resource('/','Home\IndexController');//前台页面跳转到商品详情页还没做
-
-// Route::resource('/product','Home\IndexController');//需要传gid	
+Route::resource('/','Home\IndexController');
 
 Route::resource('/home','Home\IndexController');
-
-// Route::controller('/req','ReqController');
 
 Route::resource('/home/index','Home\IndexController');
 
 Route::resource('/feedback','Home\FeedbackController');
 
+//前台反馈中心入口
+Route::resource('/feedback','Home\FeedbackController');
 
-
->>>>>>> 1ed457b73b5b6074410e8785e05b2f7243908361
+//后台反馈中心列表
+Route::resource('/admin/feedback','Admin\FeedbackController');

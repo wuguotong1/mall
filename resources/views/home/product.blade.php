@@ -3,12 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="/home/css/style.css" />
-    <!--[if IE 6]>
-    <script src="/home/js/iepng.js" type="text/javascript"></script>
-        <script type="text/javascript">
-           EvPNG.fix('div, ul, img, li, input, a'); 
-        </script>
-    <![endif]-->
     
     <script type="text/javascript" src="/home/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="/home/js/menu.js"></script>    
@@ -756,10 +750,10 @@
                             </div>
                         </td>
                         <td class="col-author">
-                            <div class="rate-user-info" style="color:#333;font-family:Arial,宋体;font-size:14px"><span>{{ $v->user->uname }}</span>
+                            <div class="rate-user-info" style="color:#333;font-family:Arial,宋体;font-size:14px"><span>{{ $v->user->nikename }}</span>
                                 </div>
                                     <div class="rate-user-grade">
-                                        <p class="gold-user" style="color:red;font-size:12px;font-family:Arial,宋体">({{ $v->user->score }})</p>
+                                        <p class="gold-user" style="color:red;font-size:12px;font-family:Arial,宋体">( {{ $v->user->score }} )</p>
                                         <p class="gold-user" style="font-family:Arial,宋体"">
                                             <?php 
                                                 if( $v->user->score >=0 && $v->user->score < 10) echo '<img src="/home/rank/a1.png" style="width:80px;height:22px">';

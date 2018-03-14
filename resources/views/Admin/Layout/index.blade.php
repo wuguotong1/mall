@@ -103,14 +103,6 @@
                     </li >
                 </ul>
             </li>
-             <li>
-                <a href="{{ url('admin/index') }}">
-                    <i class="iconfont">&#xe726;</i>
-                    <cite>评论管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-            </li>
-
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
@@ -138,6 +130,29 @@
                     </li >
                 </ul>
             </li>
+
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe726;</i>
+                    <cite>评论管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ url('admin/index') }}">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>评论管理</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a href="{{ url('admin/feedback') }}">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>反馈列表</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>

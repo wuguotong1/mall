@@ -7,7 +7,6 @@
 @section('content')
 <!DOCTYPE html>
 <html>
-  
   <body>
     <div class="x-nav">
       <span class="layui-breadcrumb">
@@ -21,14 +20,13 @@
     <div class="x-body">
       
       <xblock>
-        <button class="layui-btn layui-btn-info"><i class="layui-icon"></i>评论列表</button>
-        
-        <span class="x-right" style="line-height:40px">共有 {{$count}} 条评论</span>
+        <button class="layui-btn layui-btn-info"><i class="layui-icon"></i>反馈列表</button>
+        <span class="x-right" style="line-height:40px">共有 {{$count}} 条反馈</span>
       </xblock>
       <div class="layui-row">
-        <form class="layui-form layui-col-md12 x-so" action="/admin/index" method="get">
-          
-          <input type="text" name="search"  placeholder="请搜索任意字段" autocomplete="off" class="layui-input" value="{{$search or ''}}" style="margin-left:810px">
+
+        <form class="layui-form layui-col-md12 x-so" action="/admin/feedback" method="get">
+          <input type="text" name="search"  placeholder="请搜索任意字段" autocomplete="off" class="layui-input" value="{{$search or ''}}" style="margin-left:820px">
           <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
       </div>
@@ -36,47 +34,34 @@
         <thead>
           <tr>
              <tr>
-                        <th  class="sorting_asc" style="width: 25px;">评论ID</th>
-                        <th  class="sorting_asc" style="width: 25px;">用户名</th>
-                        <th  class="sorting_asc" style="width: 60px;">商品名</th>
-                        <th  class="sorting_asc" style="width: 50px;">评论标题</th>
-                        <th  class="sorting_asc" style="width: 140px;">评论内容</th>
-                        <th  class="sorting_asc" style="width: 100px;">评论时间</th>
-                        <th  class="sorting_asc" style="width: 18px;">评分</th>
-                        <th  class="sorting" style="width: 210px;text-align:center">操作</th> 
-                    </tr></tr>
+                  <th  class="sorting_asc" style="width: 15px;">反馈ID</th>
+                  <th  class="sorting_asc" style="width: 40px;">反馈标题</th>
+                  <th  class="sorting_asc" style="width: 140px;">反馈内容</th>
+                  <th  class="sorting_asc" style="width: 40px;">反馈时间</th>
+                  <th  class="sorting_asc" style="width: 18px;">联系人</th>
+                  <th  class="sorting_asc" style="width: 18px;">电话</th>
+                  <th  class="sorting_asc" style="width: 18px;">邮箱</th>
+                  <th  class="sorting_asc" style="width: 18px;">地址</th>
+              </tr></tr>
         </thead>
         <tbody>
           @foreach($data as $key=>$v)
                     <tr>
-                        <td>{{ $v->id }}</td>
-                        <td>{{ $v->uid }}</td>
-                        <td>{{ $v->item }}</td>
-                        <td>{{ $v->title }}</td>
-                        <td>{{ $v->comment }}</td>
-                        <td>{{ $v->created_at }}</td>
-                        <td>{{ $v->rate }}</td>
-                        <td>
-            <form action="/admin/index/{{$v->id}}" method="post" style="display:inline">
-        {{csrf_field()}}
-        {{method_field('DELETE')}}
-        <input type="submit"  value="删除" class="layui-btn layui-btn-danger">
-    </form>
-
-    <a href="/admin/index/{{$v->id}}/edit" class="layui-btn layui-btn-warning">修改</a>
-
-    <form action="/admin/index/{{$v->id}}" method="get" style="display:inline">
-        <input type="submit" class="layui-btn layui-btn-info" value="查看并回复">
-    </form>
-    </td>
+                        <td>{{ $v['id'] }}</td>
+                        <td>{{ $v['title'] }}</td>
+                        <td>{{ $v['content'] }}</td>
+                        <td>{{ $v['created_at'] }}</td>
+                        <td>{{ $v['contact'] }}</td>
+                        <td>{{ $v['phone'] }}</td>
+                        <td>{{ $v['email'] }}</td>
+                        <td>{{ $v['address'] }}</td>
           </tr>
 @endforeach
         </tbody>
       </table>
 
-
       <div class="page" >
-       {!! $data->render() !!}
+        {!! $data->render() !!}
       </div>
 
     </div>
@@ -141,6 +126,7 @@
         });
       }
     </script>
+    
     <script>var _hmt = _hmt || []; (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
